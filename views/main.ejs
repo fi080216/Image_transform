@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Transform App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            margin-top: 0px;
+            margin-bottom: 10px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h1>Upload and Transform Image</h1>
+
+    <!-- Image Upload Form -->
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="Image" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    <% if (fileId) { %>
+        <h2>Apply Transformations</h2>
+
+        <!-- Transformation Form -->
+        <form action="/files/<%= fileId %>" method="GET">
+            <h4>Width: <input type="number" name="width" min="1"></h4>
+            <h4>Height: <input type="number" name="height" min="1"></h4>
+            
+            <h4>Format: 
+                <select name="format">
+                    <option value="">Original</option>
+                    <option value="png">PNG</option>
+                    <option value="webp">WEBP</option>
+                </select>
+            </h4>
+
+            <h4>Filter: 
+                <select name="filter">
+                    <option value="">None</option>
+                    <option value="grayscale">Grayscale</option>
+                    <option value="blur">Blur</option>
+                    <option value="brightness">Brightness</option>
+                </select>
+            </h4>
+            <h3>Preview:</h3>
+            <img src="/files/<%= fileId %>" alt="Transformed Image">
+            <input type="hidden" name="download" value="true">
+            <button type="submit">Download transformed Image</button>
+        </form>
+    <% } %>
+
+</body>
+</html>
