@@ -117,21 +117,3 @@ app.listen(8080, () => {
 });
 
 
-// function processImage(width, height, req, res) {
-//   const outputfilepath = "output." + format;
-
-//   if (!req.file) {
-//       return res.status(400).json({ error: "No file uploaded" });
-//   }
-
-//   sharp(req.file.path)
-//       .resize(width, height)
-//       .toFile(outputfilepath, (err, info) => {
-//           if (err) {
-//               console.error("Error processing image:", err);
-//               return res.status(500).json({ error: "Failed to process image" });
-//           }
-
-          
-//       });
-// }
