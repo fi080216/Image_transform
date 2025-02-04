@@ -3,10 +3,10 @@ const app = express();
 const { v4: uuidv4 } = require("uuid");
 const multer = require("multer");
 const path = require("path");
-const fs = require("fs");
-const sharp = require("sharp");
-const imageSize = require("image-size");
-const bodyParser = require("body-parser");
+// const fs = require("fs");
+// const sharp = require("sharp");
+// const imageSize = require("image-size");
+// const bodyParser = require("body-parser");
 
 // imported function
 const post = require("./controllers/post");
@@ -25,7 +25,7 @@ const storage = multer.diskStorage({
     cb(null, "Images");
   },
   filename: (req, file, cb) => {
-    console.log(file);
+    // console.log(file);
 
     cb(null, uuidv4() + path.extname(file.originalname));
   },

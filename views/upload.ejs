@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          max-width: 600px;
+          margin: auto;
+          padding: 50px;
+          text-align: center;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+</head>
+<body>
+    <p style="font-weight: 700; color: rgb(78, 78, 227);">FileId: <%= fileId %></p>
+    <div style="display: flex; gap: 20px; width: 700px;">
+        
+<div>
+
+
+   
+    <form  action="/files/<%= fileId %>" method="GET">
+        
+        <h3 style="text-align: center; background-color: rgb(214, 216, 221); border-radius: 5px; padding-top: 10px; padding-bottom: 15px;">Apply Transformations</h3>
+        <div style="margin-top: 30px;">
+        <h5>Width: <input class="form-control" style="border-color: black;"
+          id="formFile" type="number" name="width" min="1" /></h5>
+        <h5 style="margin-top: 30px;">Height: <input class="form-control" style="border-color: black;"
+          
+          id="formFile" type="number" name="height" min="1" /></h5>
+
+        <h5 style="margin-top: 30px;">
+          Format:
+          <select class="form-control" style="border-color: black;"
+          id="formFile" name="format">
+            <option  value="">Original</option>
+            <option value="png">PNG</option>
+            <option value="webp">WEBP</option>
+          </select>
+        </h5>
+
+        <h5 style="margin-top: 30px;">
+          Filter:
+          <select class="form-control" style="border-color: black;"
+          id="formFile" name="filter">
+            <option value="">None</option>
+            <option value="grayscale">Grayscale</option>
+            <option value="blur">Blur</option>
+            <option value="brightness">Brightness</option>
+          </select>
+        </h5>
+    </div>
+      
+  </div>
+  <div>
+
+        <h3 style="margin-left: 15px;">Preview:</h3>
+        <img style="width: 90%; align-items: center; justify-content: center; margin-left: 15px;" src="/files/<%= fileId %>" alt="Transformed Image" />
+        <input type="hidden" name="download" value="true" />
+        <button class="form-control"
+        id="formFile" style="margin-top: 20px; color: white;
+        background-color: rgb(84, 84, 231);
+        font-weight: 500;" type="submit">Download transformed Image</button>
+      
+      </form>
+    </div>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"
+      ></script>
+    </div>
+</body>
+</html>

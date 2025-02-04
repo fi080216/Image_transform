@@ -14,7 +14,7 @@ function files(){
             try {
                 const { fileId } = req.params;
                 const { width, height, format, filter, download } = req.query;
-          
+                
                 const inputPath = path.join(__dirname, '../Images', fileId);
                 if (!fs.existsSync(inputPath)) {
                     return res.status(404).send('File not found');

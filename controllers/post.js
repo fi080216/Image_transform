@@ -2,7 +2,7 @@ function post(){
     return{
         upload(req,res){
             const fileId = req.file.filename;
-            res.render("main", { fileId : fileId});
+            res.render("upload", { fileId : fileId});
 
         }
 
